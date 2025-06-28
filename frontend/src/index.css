@@ -1,0 +1,800 @@
+/* === GLOBAL RESETS === */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #a5d0ff10;
+   font-family: 'Tajawal','Cairo', sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-width: 100vw !important;
+  width: 100% !important;
+  flex: 1;
+}
+
+body {
+   font-family:'Poppins','Tajawal', OpenSans, Arial, sans-serif;
+  font: var(--cds-typography-body-primary);
+  letter-spacing: var(--cds-letter-spacing-0);
+  color: var(--cds-color-neutral-primary);
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* === HERO SECTION === */
+.hero-section {
+  padding-top: 100px;
+  position: relative;
+  height: 115vh;
+  width: 100vw;
+  overflow: hidden;
+
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background: linear-gradient(to bottom, #f8f8f638, #f0f0ed00),
+    /* cc = شفافية */ url("/assets/bg-icons.png") center center no-repeat;
+
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+
+  opacity: 0.4; /* 🔧 شفافية الصورة الكاملة */
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+.left-hand,
+.right-hand {
+  position: absolute;
+  height: 90vh;
+  max-width: none;
+  transition: transform 0.8s ease;
+  z-index: 2;
+}
+
+.left-hand {
+  top: -11%;
+  left: 0;
+  width: 50vw;
+  transition: transform 0.5s ease;
+}
+
+.right-hand {
+  bottom: -11%;
+  right: 10%;
+  width: 35vw;
+
+  transition: transform 0.5s ease;
+}
+
+.hero-title {
+  position: absolute;
+  top: 40%;
+  left: 38%;
+  transform: translate(-50%, -50%);
+  font-size: 4.5rem;
+  font-weight: bold;
+  color: #434343bf;
+  z-index: 2;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* === DONATION CARD FIX === */
+.card {
+  height: 100%;
+  min-height: 430px;
+  max-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* === VIEW DETAILS BUTTON === */
+.btn-animated {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 33px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #2238ff;
+  border: none;
+  transform: skewX(-15deg);
+  box-shadow: 6px 6px 0 black;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  border-radius: 10px;
+  text-transform: capitalize;
+}
+
+.btn-animated .span {
+  transform: skewX(15deg);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-animated .arrow {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.4s ease;
+}
+
+.btn-animated:hover {
+  box-shadow: 10px 10px 0 #fbc638;
+  background-color: #2238ff;
+}
+
+.btn-animated:hover .arrow {
+  transform: translateX(8px);
+}
+
+/* === FOOTER FIXED & CLEAN === */
+
+/* KEEP REMAINING STYLES AS IS */
+
+/* زر Contact Donor المخصص */
+.cta {
+  display: flex;
+  padding: 11px 33px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  background: #2238ff;
+  transition: 1s;
+  box-shadow: 6px 6px 0 black;
+  transform: skewX(-15deg);
+  border: none;
+  cursor: pointer;
+}
+.cta:focus {
+  outline: none;
+}
+.cta:hover {
+  transition: 0.5s;
+  box-shadow: 10px 10px 0 #fbc638;
+}
+.cta .second {
+  transition: 0.5s;
+  margin-right: 0px;
+}
+.cta:hover .second {
+  margin-right: 45px;
+}
+.span {
+  transform: skewX(15deg);
+}
+.second {
+  width: 20px;
+  margin-left: 30px;
+  position: relative;
+  top: 12%;
+}
+.one,
+.two,
+.three {
+  transition: 0.4s;
+}
+.cta:hover .one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+.cta:hover .two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+.cta:hover .three {
+  animation: color_anim 1s infinite 0.2s;
+}
+@keyframes color_anim {
+  0%,
+  100% {
+    fill: white;
+  }
+  50% {
+    fill: #fbc638;
+  }
+}
+.details-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.image-side {
+  flex: 1;
+  max-width: 600px;
+}
+
+.info-side {
+  flex: 1;
+  padding-top: 20px;
+}
+
+.info-side h2 {
+  font-size: 2.2rem;
+  color: #6225e6;
+  margin-bottom: 1rem;
+}
+
+.detail-text {
+  font-size: 1.15rem;
+  color: #444;
+  margin-bottom: 0.75rem;
+}
+
+.description-box {
+  max-height: 4.5em; /* حوالي 3 سطور */
+  overflow-y: auto;
+  font-size: 1.1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  line-height: 1.5;
+  background-color: #f8f8f8;
+  margin-bottom: 1rem;
+}
+
+.description-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.description-box::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+.profile-container {
+  max-width: 1000px;
+  margin: auto;
+  background-color: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.profile-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.profile-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #eee;
+}
+
+.profile-info {
+  flex-grow: 1;
+}
+
+.profile-info h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.3rem;
+}
+
+.profile-info p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+}
+
+.nav-tabs {
+  margin-top: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-info {
+    align-items: center;
+  }
+}
+
+.donation-img {
+  height: 200px !important;
+  object-fit: cover !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.card[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* زر الفئة العام */
+.filter-btn {
+  padding: 8px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  border: 2px solid #007bff;
+  border-radius: 20px;
+  background-color: white;
+  color: #007bff;
+  transition: all 0.3s ease;
+}
+
+/* عند تمرير الماوس */
+.filter-btn:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* الزر المحدد */
+.filter-btn.active {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.4);
+}
+
+/* ======== SEARCH + SELECT STYLES ========= */
+
+.custom-input,
+.custom-select {
+  padding: 15px 22px;
+  border: 2px solid #48719d;
+  border-radius: 12px;
+  font-size: 18px;
+  width: 100%;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.custom-input:focus,
+.custom-select:focus {
+  outline: none;
+  border-color: #0c1014;
+  box-shadow: 0 0 6px rgba(50, 30, 178, 0.3);
+}
+
+/* Icon inside the input/select */
+
+/* === Navbar General Styles === */
+
+.navbar-brand span {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #1d1d1f;
+}
+
+.navbar .nav-item a,
+.navbar .dropdown-toggle {
+  font-size: 1.1rem;
+  color: #1d1d1f !important;
+  transition: color 0.3s ease;
+}
+
+.navbar .nav-item a:hover,
+.navbar .dropdown-toggle:hover {
+  color: #007bff !important;
+}
+
+.navbar-toggler {
+  border: none;
+  font-size: 1.2rem;
+}
+
+/* === Dropdown === */
+.dropdown-menu {
+  font-size: 1rem;
+  min-width: 180px;
+  border-radius: 0.5rem;
+}
+
+/* === Responsive Behavior === */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .navbar .nav-item {
+    margin-bottom: 1rem;
+  }
+}
+
+/* === Page Padding Fix === */
+.main-content {
+  padding-top: 80px; /* Space for navbar */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* === Chat Layout Fix === */
+.chat-page-container {
+  margin-top: 80px; /* Ensure space from navbar */
+}
+
+/* === Active NavLink Highlight === */
+.navbar .nav-item .active {
+  color: #007bff !important;
+  font-weight: 600;
+}
+
+/* styles/navbar.css */
+
+.navbar {
+  height: 80px; /* أعلى من الطبيعي */
+  background-color: rgba(255, 255, 255, 0.8); /* شفافية */
+  backdrop-filter: blur(8px); /* تأثير زجاجي */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.navbar a,
+.navbar button {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border-radius: 12px;
+  transition: background 0.3s;
+}
+
+.navbar a:hover,
+.navbar button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 576px) {
+  .card-grid {
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+}
+
+/* index.css */
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .left-hand {
+    width: 45vw;
+    height: auto;
+    top: -4%;
+    transition: transform 0.5s ease;
+  }
+
+  .right-hand {
+    width: 45vw;
+    height: auto;
+    bottom: 15%;
+    right: 5%;
+    transition: transform 0.5s ease;
+  }
+}
+
+.left-hand,
+.right-hand {
+  position: absolute;
+  height: 90vh;
+  max-width: none;
+  transition: transform 0.6s ease; /* ✅ اترك هذا فقط */
+  z-index: 2;
+}
+
+@keyframes fadeSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  animation: fadeSlide 1.5s ease forwards;
+  color: #333;
+  background: linear-gradient(to right, #3b4ad7, #2e2d2f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero-section::before {
+  animation: moveBg 15s infinite linear;
+}
+.m-title {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 3.5rem;
+  font-weight: bold;
+  animation: fadeSlide 1.5s ease forwards;
+  background: linear-gradient(to right, #3b4ad7, #2e2d2f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.hero-section::before {
+  animation: moveBg 15s infinite linear;
+}
+@keyframes moveBg {
+  0% {
+    background-position: center top;
+  }
+  100% {
+    background-position: center bottom;
+  }
+}
+
+.join-us-section {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #f4f7fc;
+  border-radius: 16px;
+  margin: 3rem auto;
+  max-width: 800px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.join-us-button {
+  background-color: #2238ff;
+  color: white;
+  padding: 16px 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join-us-button:hover {
+  background-color: #1b2edb;
+  box-shadow: 0 0 12px rgba(34, 56, 255, 0.4);
+}
+
+.welcome-message {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+}
+/* ✨ في ملف global.css أو index.css */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  min-height: calc(100vh - 160px);
+  padding-bottom: 50px;
+}
+
+/* ✨ لإضافة مسافة أسفل آخر قسم مثل JoinUsSection */
+.join-us-section {
+  margin-bottom: 40px;
+}
+.left-hand,
+.right-hand {
+  filter: sepia(0.3);
+  transition: filter 0.3s ease;
+
+  background: radial-gradient(
+    circle,
+    rgba(237, 163, 90, 0.177),
+    transparent 70%
+  );
+
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Overlay */
+.thankyou-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal box */
+.thankyou-box {
+  background: white;
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  transform: scale(0.95);
+  animation: scaleUp 0.4s ease-in-out forwards;
+}
+
+/* Animations */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Button */
+.thankyou-box button {
+  margin-top: 1.5rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.thankyou-box button:hover {
+  background-color: #218838;
+}
+
+.donations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* حجم موحد للبطاقة */
+.donation-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  height: 420px;       /* 👈 ثبات في الارتفاع */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.donation-card:hover {
+  transform: scale(1.02);
+}
+
+.donation-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.donation-card .card-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body[data-theme="light"] {
+  background-color: white;
+  color: black;
+}
+
+body[data-theme="dark"] {
+  background-color: #1a1a1a;
+  color: white;
+}

@@ -1,0 +1,15 @@
+# Common Node.js
+node_modules/
+.env
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# VSCode
+.vscode/
+
+# Build files
+frontend/build/
+backend/dist/

@@ -1,33 +1,25 @@
-# full-graduation-project
+# Graduation Full Stack Project
+
 This is a full-stack web application built with:
 
-•Frontend: React.js  
+- **Frontend**: React.js
+- **Backend**: Node.js + Express
+- **Database**: MongoDB (or your DB)
 
-•Backend: Node.js + Express  
+## Folder Structure
 
-•Database: MongoDB (or your DB)
+- `/frontend` – React client
+- `/backend` – Node.js API
 
-# Folder Structure
+## Getting Started
 
-•/frontend – React client  
- 
-•/backend – Node.js API
-
-# Getting started
-
- #Frontend  
- 
-cd frontend  
-
-npm install  
-
+```bash
+# Frontend
+cd frontend
+npm install
 npm start
 
- #Backend  
- 
-cd backend  
-
-npm install  
-
-node server.js  
-
+# Backend
+cd backend
+npm install
+node server.js

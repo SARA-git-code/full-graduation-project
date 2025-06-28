@@ -1,0 +1,196 @@
+// File: src/pages/SettingsPage.js
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Moon, Globe, Mail, Phone, Lock, Eye } from 'lucide-react';
+import { Tab, Nav, Alert } from 'react-bootstrap';
+
+const SettingsPage = () => {
+  const [settings, setSettings] = useState({
+    theme: localStorage.getItem('theme') || 'light',
+    language: 'en',
+    showProfilePublic: true,
+    email: '',
+    phone: '',
+    newPassword: '',
+    confirmPassword: ''
+  });
+
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('settings');
+    if (saved) setSettings(JSON.parse(saved));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('settings', JSON.stringify(settings));
+  }, [settings]);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setSettings((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+
+  const handleSave = () => {
+    if (settings.newPassword && settings.newPassword !== settings.confirmPassword) {
+      alert('Passwords do not match.');
+      return;
+    }
+    localStorage.setItem('settings', JSON.stringify(settings));
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+  };
+
+  return (
+    <div className="container py-5" style={{ fontFamily: 'Segoe UI, sans-serif', fontSize: '1.15rem' }}>
+      <div className="card shadow border-0">
+        <div className="card-body p-4">
+          <h3 className="mb-4 border-bottom pb-2">⚙️ Settings</h3>
+
+          {showSuccess && (
+            <Alert variant="success" className="fade show">Settings saved successfully!</Alert>
+          )}
+
+          <Tab.Container defaultActiveKey="account">
+            <Nav variant="tabs" className="mb-4">
+              <Nav.Item>
+                <Nav.Link eventKey="account">Account Info</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="preferences">Preferences</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="security">Security</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+    <Nav.Link eventKey="danger" className="text-danger">Danger Zone</Nav.Link>
+  </Nav.Item>
+</Nav>
+
+            <Tab.Content>
+              <Tab.Pane eventKey="account">
+                <div className="d-flex align-items-center mb-3">
+                  <Mail className="me-2 text-muted" />
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control" style={{ height: '50px', fontSize: '1rem' }}
+                    value={settings.email}
+                    onChange={handleChange}
+                    placeholder="Your email address"
+                  />
+                </div>
+                <div className="d-flex align-items-center mb-3">
+                  <Phone className="me-2 text-muted" />
+                  <input
+                    type="tel"
+                    name="phone"
+                    className="form-control"
+                    value={settings.phone}
+                    onChange={handleChange}
+                    placeholder="Your phone number"
+                  />
+                </div>
+              </Tab.Pane>
+
+              <Tab.Pane eventKey="preferences">
+                <div className="d-flex align-items-center mb-3">
+                  <Moon className="me-2 text-muted" />
+                  <div className="flex-grow-1">
+                    <label className="form-label mb-0">Theme</label>
+                    <select
+                      name="theme"
+                      className="form-select mt-1" style={{ height: '50px', fontSize: '1rem' }}
+                      value={settings.theme}
+                      onChange={handleChange}
+                    >
+                      <option value="light">Light</option>
+                      <option value="dark">Dark</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="d-flex align-items-center mb-3">
+                  <Globe className="me-2 text-muted" />
+                  <div className="flex-grow-1">
+                    <label className="form-label mb-0">Language</label>
+                    <select
+                      name="language"
+                      className="form-select mt-1"
+                      value={settings.language}
+                      onChange={handleChange}
+                    >
+                      <option value="en">English</option>
+                      <option value="ar">Arabic</option>
+                                          </select>
+                  </div>
+                </div>
+                <div className="form-check form-switch mb-3">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name="showProfilePublic"
+                    checked={settings.showProfilePublic}
+                    onChange={handleChange}
+                    id="publicProfileSwitch"
+                  />
+                  <label className="form-check-label" htmlFor="publicProfileSwitch">
+                    Make Profile Public
+                  </label>
+                </div>
+              </Tab.Pane>
+
+              <Tab.Pane eventKey="security">
+                <div className="d-flex align-items-center mb-3">
+                  <Lock className="me-2 text-muted" />
+                  <input
+                    type="password"
+                    name="newPassword"
+                    className="form-control"
+                    value={settings.newPassword}
+                    onChange={handleChange}
+                    placeholder="New password"
+                  />
+                </div>
+                <div className="d-flex align-items-center mb-4">
+                  <Eye className="me-2 text-muted" />
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    className="form-control"
+                    value={settings.confirmPassword}
+                    onChange={handleChange}
+                    placeholder="Confirm password"
+                  />
+                </div>
+              </Tab.Pane>
+            <Tab.Pane eventKey="danger">
+  <div className="alert alert-warning d-flex align-items-center gap-2">
+    ⚠️ <strong>Danger Zone:</strong> Deleting your account is irreversible.
+  </div>
+  <div className="text-end">
+    <button
+      className="btn btn-danger px-4"
+      onClick={() => alert('Account deletion simulated. Connect to backend to enable.')}
+    >
+      Delete Account
+    </button>
+  </div>
+</Tab.Pane>
+</Tab.Content>
+          </Tab.Container>
+
+          <div className="text-end">
+            <button className="btn btn-outline-primary px-4" onClick={handleSave}>
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default SettingsPage;

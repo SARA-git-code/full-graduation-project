@@ -1,0 +1,157 @@
+/* ✅ نموذج التبرع الأساسي */
+.donation-form {
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+  max-width: 750px;
+  margin: 40px auto;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ✅ العنوان */
+.donation-form h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* ✅ العناوين الفرعية */
+.donation-form .form-label {
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #444;
+  font-size: 18px;
+}
+
+/* ✅ حقول الإدخال */
+.donation-form .form-control,
+.donation-form .form-select {
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+/* ✅ حالة التبرع (New / Used) */
+.donation-form .form-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.donation-form .form-check-label {
+  font-size: 16px;
+  color: #555;
+}
+
+/* ✅ زر الإرسال */
+.donation-form button[type="submit"] {
+  padding: 12px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 8px;
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.donation-form button[type="submit"]:hover {
+  background-color: #0f5cc0;
+}
+
+/* ✅ منطقة رفع الصور */
+.upload-box {
+  border: 2px dashed #ccc;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+.upload-box p {
+  margin: 0;
+  color: #888;
+  font-size: 16px;
+}
+
+.upload-box svg {
+  color: #777;
+  margin-bottom: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+/* ✅ دعم الهواتف */
+@media (max-width: 768px) {
+  .donation-form {
+    padding: 25px 15px;
+    margin: 20px;
+  }
+
+  .donation-form h2 {
+    font-size: 24px;
+  }
+
+  .donation-form .form-label,
+  .donation-form .form-control,
+  .donation-form .form-select,
+  .donation-form .form-check-label {
+    font-size: 16px;
+  }
+
+  .donation-form button[type="submit"] {
+    font-size: 16px;
+  }
+}
+/* ✅ تنسيق حاوية عرض الصور */
+.preview-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+  min-height: 110px;
+}
+
+/* ✅ تنسيق كل صورة */
+.image-preview {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ✅ زر الحذف */
+.image-preview .remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  padding: 0px 6px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 14px;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 2;
+}

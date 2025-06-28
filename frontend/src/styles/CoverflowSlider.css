@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo&family=Lora&family=Playfair+Display:wght@700&display=swap');
+
+/* 🌟 الخلفية العامة */
+.coverflow-wrapper {
+  margin-top: 0;
+  padding-top: 40px;
+  background-size: cover;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* 🌀 الكونتينر الرئيسي للسلايدر */
+.swiper-container {
+  width: 100%;
+  max-width: 1400px;
+  height: auto;
+  padding: 100px 0 120px;
+  margin: auto;
+  transition: background 0.5s ease;
+}
+
+/* 🎴 كل شريحة */
+.swiper-slide {
+  background: url('./assets/about-bg.jpg') no-repeat center center / cover;
+  background-color: rgba(235, 245, 255, 0.574); /* 💙 أزرق فاتح شفاف */
+  background-blend-mode: lighten;
+  border-radius: 40px;
+  padding: 60px 50px;
+  width: 850px;
+  min-height: 600px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.8s ease, box-shadow 0.8s ease;
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+/* ✨ تأثير عند التحويم */
+.swiper-slide:hover {
+  transform: scale(1.02);
+  box-shadow: 0 35px 80px rgba(41, 33, 192, 0.15);
+}
+
+/* 🖋️ النصوص داخل السلايد */
+.text-slide h3 {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 2.5rem;
+  color: #1f2c40;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  
+}
+
+.text-slide p {
+  font-family: 'Cairo', sans-serif;
+  font-size: 1.5rem;
+ color: #1b1d24;
+  line-height: 2.0;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.text-slide p:nth-child(even) {
+  font-weight: bold;
+  color: #1f2c40;
+  font-size: 1.4rem;
+  
+}
+
+/* 🚧 فاصل ناعم بين الأقسام */
+.section-transition {
+  height: 80px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  margin-top: -20px;
+  background: #f0f4ff;
+}
+
+/* 💨 ثبات الخلفية */
+.about-slider-fade {
+  background-attachment: fixed;
+}
+
+
+/* 📱 استجابة للشاشات الصغيرة */
+@media (max-width: 1024px) {
+  .swiper-slide {
+    width: 90%;
+    padding: 40px 30px;
+    min-height: 550px;
+  }
+
+  .text-slide h3 {
+    font-size: 2rem;
+  }
+
+  .text-slide p {
+    font-size: 1.1rem;
+  }
+
+  .text-slide p:nth-child(even) {
+    font-size: 1.2rem;
+  }
+}
+.slider-text {
+  color: #fff; /* أو #f3f3f3 إن كنت تستخدم خلفية فاتحة */
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.8;
+  text-align: center;
+  padding: 20px 40px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* ✅ ظل للنص */
+  backdrop-filter: blur(4px); /* ✅ تمويه خلفي لإبراز النص */
+  background-color: rgba(0, 0, 0, 0.3); /* ✅ خلفية شفافة ناعمة */
+  border-radius: 20px;
+  max-width: 90%;
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+}
