@@ -6,15 +6,18 @@ This is a full-stack web application built with:
 •Database: MongoDB (or your DB)
 
 # Folder Structure
+
 •/frontend – React client
 •/backend – Node.js API
 
-# Frontend
+# Getting started
+
+ #Frontend
 cd frontend
 npm install
 npm start
 
-# Backend
+ #Backend
 cd backend
 npm install
 node server.js
