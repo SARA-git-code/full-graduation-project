@@ -1,8 +1,10 @@
 # full-graduation-project
 This is a full-stack web application built with:
 
-•Frontend: React.js
-•Backend: Node.js + Express
+•Frontend: React.js  
+
+•Backend: Node.js + Express  
+
 •Database: MongoDB (or your DB)
 
 # Folder Structure
