@@ -9,17 +9,25 @@ This is a full-stack web application built with:
 
 # Folder Structure
 
-•/frontend – React client
+•/frontend – React client  
+ 
 •/backend – Node.js API
 
 # Getting started
 
- #Frontend
-cd frontend
-npm install
+ #Frontend  
+ 
+cd frontend  
+
+npm install  
+
 npm start
 
- #Backend
-cd backend
-npm install
-node server.js
+ #Backend  
+ 
+cd backend  
+
+npm install  
+
+node server.js  
+
